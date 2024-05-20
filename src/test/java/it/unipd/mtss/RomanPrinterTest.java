@@ -22,7 +22,7 @@ public class RomanPrinterTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testNumberOutOfRange() {
-        int num = 11;
+        int num = 21;
         String result = IntegerToRoman.convert(num);
     }
 
@@ -92,6 +92,53 @@ public class RomanPrinterTest {
                         "  > <   \n" +
                         " / . \\  \n" +
                         "/_/ \\_\\ "};
+
+        for (int i=0; i<decimalNumbers.length; i++){
+            assertEquals(RomanPrinter.print(decimalNumbers[i]).trim(), romanNumbers[i].trim());
+        }
+    }
+
+    @Test
+    public void testFirstTwentyNumbers() {
+        int[] decimalNumbers = {11,14,15,16,19,20};
+        String[] romanNumbers = {
+                "__   __  _____ \n" +
+                        "\\ \\ / / |_   _|\n" +
+                        " \\ V /    | |  \n" +
+                        "  > <     | |  \n" +
+                        " / . \\   _| |_ \n" +
+                        "/_/ \\_\\ |_____|",
+                "__   __  _____ __      __ \n" +
+                        "\\ \\ / / |_   _|\\ \\    / / \n" +
+                        " \\ V /    | |   \\ \\  / /  \n" +
+                        "  > <     | |    \\ \\/ /   \n" +
+                        " / . \\   _| |_    \\  /    \n" +
+                        "/_/ \\_\\ |_____|    \\/     ",
+                "__   __ __      __ \n" +
+                        "\\ \\ / / \\ \\    / / \n" +
+                        " \\ V /   \\ \\  / /  \n" +
+                        "  > <     \\ \\/ /   \n" +
+                        " / . \\     \\  /    \n" +
+                        "/_/ \\_\\     \\/     ",
+                "__   __ __      __  _____ \n" +
+                        "\\ \\ / / \\ \\    / / |_   _|\n" +
+                        " \\ V /   \\ \\  / /    | |  \n" +
+                        "  > <     \\ \\/ /     | |  \n" +
+                        " / . \\     \\  /     _| |_ \n" +
+                        "/_/ \\_\\     \\/     |_____|",
+                "__   __  _____ __   __ \n" +
+                        "\\ \\ / / |_   _|\\ \\ / / \n" +
+                        " \\ V /    | |   \\ V /  \n" +
+                        "  > <     | |    > <   \n" +
+                        " / . \\   _| |_  / . \\  \n" +
+                        "/_/ \\_\\ |_____|/_/ \\_\\ ",
+                "__   __ __   __ \n" +
+                        "\\ \\ / / \\ \\ / / \n" +
+                        " \\ V /   \\ V /  \n" +
+                        "  > <     > <   \n" +
+                        " / . \\   / . \\  \n" +
+                        "/_/ \\_\\ /_/ \\_\\ "
+        };
 
         for (int i=0; i<decimalNumbers.length; i++){
             assertEquals(RomanPrinter.print(decimalNumbers[i]).trim(), romanNumbers[i].trim());

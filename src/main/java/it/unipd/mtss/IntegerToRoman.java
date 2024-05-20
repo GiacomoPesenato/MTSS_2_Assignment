@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 public class IntegerToRoman {
 
-    private static final int limit = 10 ;
+    private static final int limit = 20 ;
     private final static TreeMap<Integer, String> map = new TreeMap<>();
 
     static {
