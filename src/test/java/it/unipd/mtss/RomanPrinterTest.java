@@ -22,7 +22,7 @@ public class RomanPrinterTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testNumberOutOfRange() {
-        int num = 21;
+        int num = 51;
         String result = IntegerToRoman.convert(num);
     }
 
@@ -138,6 +138,59 @@ public class RomanPrinterTest {
                         "  > <     > <   \n" +
                         " / . \\   / . \\  \n" +
                         "/_/ \\_\\ /_/ \\_\\ "
+        };
+
+        for (int i=0; i<decimalNumbers.length; i++){
+            assertEquals(RomanPrinter.print(decimalNumbers[i]).trim(), romanNumbers[i].trim());
+        }
+    }
+
+    @Test
+    public void testFirstFiftyNumbers() {
+        int[] decimalNumbers = {21,29,30,35,40,44,50};
+        String[] romanNumbers = {
+                "__   __ __   __  _____ \n" +
+                        "\\ \\ / / \\ \\ / / |_   _|\n" +
+                        " \\ V /   \\ V /    | |  \n" +
+                        "  > <     > <     | |  \n" +
+                        " / . \\   / . \\   _| |_ \n" +
+                        "/_/ \\_\\ /_/ \\_\\ |_____|",
+                "__   __ __   __  _____ __   __ \n" +
+                        "\\ \\ / / \\ \\ / / |_   _|\\ \\ / / \n" +
+                        " \\ V /   \\ V /    | |   \\ V /  \n" +
+                        "  > <     > <     | |    > <   \n" +
+                        " / . \\   / . \\   _| |_  / . \\  \n" +
+                        "/_/ \\_\\ /_/ \\_\\ |_____|/_/ \\_\\",
+                "__   __ __   __ __   __ \n" +
+                        "\\ \\ / / \\ \\ / / \\ \\ / / \n" +
+                        " \\ V /   \\ V /   \\ V /  \n" +
+                        "  > <     > <     > <   \n" +
+                        " / . \\   / . \\   / . \\  \n" +
+                        "/_/ \\_\\ /_/ \\_\\ /_/ \\_\\ ",
+                "__   __ __   __ __   __ __      __ \n" +
+                        "\\ \\ / / \\ \\ / / \\ \\ / / \\ \\    / / \n" +
+                        " \\ V /   \\ V /   \\ V /   \\ \\  / /  \n" +
+                        "  > <     > <     > <     \\ \\/ /   \n" +
+                        " / . \\   / . \\   / . \\     \\  /    \n" +
+                        "/_/ \\_\\ /_/ \\_\\ /_/ \\_\\     \\/     ",
+                "__   __  _      \n" +
+                        "\\ \\ / / | |     \n" +
+                        " \\ V /  | |     \n" +
+                        "  > <   | |     \n" +
+                        " / . \\  | |____ \n" +
+                        "/_/ \\_\\ |______|",
+                "__   __  _       _____ __      __ \n" +
+                        "\\ \\ / / | |     |_   _|\\ \\    / / \n" +
+                        " \\ V /  | |       | |   \\ \\  / /  \n" +
+                        "  > <   | |       | |    \\ \\/ /   \n" +
+                        " / . \\  | |____  _| |_    \\  /    \n" +
+                        "/_/ \\_\\ |______||_____|    \\/     ",
+                " _      \n" +
+                        "| |     \n" +
+                        "| |     \n" +
+                        "| |     \n" +
+                        "| |____ \n" +
+                        "|______|"
         };
 
         for (int i=0; i<decimalNumbers.length; i++){
