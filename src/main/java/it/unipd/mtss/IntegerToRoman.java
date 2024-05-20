@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 public class IntegerToRoman {
 
-    private static final int limit = 50 ;
+    private static final int limit = 100 ;
     private final static TreeMap<Integer, String> map = new TreeMap<>();
 
     static {
@@ -19,6 +19,8 @@ public class IntegerToRoman {
         map.put(10, "X");
         map.put(40, "XL");
         map.put(50, "L");
+        map.put(90, "XC");
+        map.put(100, "C");
     }
 
     public static String convert(int number) throws IllegalArgumentException{

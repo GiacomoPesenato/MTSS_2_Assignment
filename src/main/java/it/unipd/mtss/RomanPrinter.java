@@ -114,7 +114,7 @@ public class RomanPrinter {
     }
 
     public static void main(String[] args) {
-        int[] testNumbers = {21,29,30,35,40,44,50};
+        int[] testNumbers = {51,54,60,74,84,86,89,90,94,95,99,100};
 
         for (int number : testNumbers) {
             System.out.println(print(number));

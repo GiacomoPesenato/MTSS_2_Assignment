@@ -23,7 +23,7 @@ public class IntegerToRomanTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testNumberOutOfRange() {
-        int num = 51;
+        int num = 101;
         String result = IntegerToRoman.convert(num);
     }
 
@@ -67,6 +67,15 @@ public class IntegerToRomanTest {
     public void testFirstFiftyNumbers() {
         int[] decimalNumbers = {21,29,30,35,40,44,50};
         String[] romanNumbers = {"XXI", "XXIX", "XXX", "XXXV", "XL", "XLIV", "L"};
+        for (int i=0; i<decimalNumbers.length; i++) {
+            assertEquals(IntegerToRoman.convert(decimalNumbers[i]), romanNumbers[i]);
+        }
+    }
+
+    @Test
+    public void testFirstHundredNumbers() {
+        int[] decimalNumbers = {51,54,60,74,84,86,89,90,94,95,99,100};
+        String[] romanNumbers = {"LI", "LIV", "LX", "LXXIV", "LXXXIV", "LXXXVI", "LXXXIX", "XC", "XCIV", "XCV", "XCIX", "C"};
         for (int i=0; i<decimalNumbers.length; i++) {
             assertEquals(IntegerToRoman.convert(decimalNumbers[i]), romanNumbers[i]);
         }
