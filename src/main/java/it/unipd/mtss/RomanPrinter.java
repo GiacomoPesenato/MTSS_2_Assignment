@@ -112,13 +112,4 @@ public class RomanPrinter {
 
         return map.get(letter);
     }
-
-    public static void main(String[] args) {
-        int[] testNumbers = {101, 113, 159, 188, 204, 249, 298, 315, 348, 367, 412, 458, 476, 499, 500};
-
-        for (int number : testNumbers) {
-            System.out.println(print(number));
-        }
-    }
-
 }
