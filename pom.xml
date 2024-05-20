@@ -90,6 +90,61 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>4.3.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <repoToken>HID6oslYBYUvrA6bP0XB7SF3FxIxmZ9H3</repoToken>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.bordertech.buildtools</groupId>
+        <artifactId>badger</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <phase>post-site</phase>
+            <goals>
+              <goal>badges</goal>
+            </goals>
+            <configuration>
+              <skip>${badges.skip}</skip>
+              <outputDir>${project.basedir}/.github/badges</outputDir>
+              <inputFiles>
+                <inputFile>target/checkstyle-result.xml</inputFile>
+              </inputFiles>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>
