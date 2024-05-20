@@ -113,12 +113,4 @@ public class RomanPrinter {
         return map.get(letter);
     }
 
-
-    public static void main(String[] args) {
-        int[] testNumbers = {1, 2, 3};
-
-        for (int number : testNumbers) {
-            System.out.println(print(number));
-        }
-    }
 }

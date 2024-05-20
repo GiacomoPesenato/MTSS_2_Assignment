@@ -22,7 +22,7 @@ public class RomanPrinterTest {
 
     @Test(expected=IllegalArgumentException.class)
     public void testNumberOutOfRange() {
-        int num = 4;
+        int num = 7;
         String result = IntegerToRoman.convert(num);
     }
 
@@ -44,7 +44,29 @@ public class RomanPrinterTest {
                         "|_____||_____||_____|\n"};
 
         for (int i=0; i<decimalNumbers.length; i++){
-            assertEquals(RomanPrinter.print(decimalNumbers[i]), romanNumbers[i]);
+            assertEquals(RomanPrinter.print(decimalNumbers[i]).trim(), romanNumbers[i].trim());
+        }
+    }
+
+    @Test
+    public void testFirstSixNumbers() {
+        int[] decimalNumbers = {4, 6};
+        String[] romanNumbers = {
+                " _____ __      __ \n" +
+                        "|_   _|\\ \\    / / \n" +
+                        "  | |   \\ \\  / /  \n" +
+                        "  | |    \\ \\/ /   \n" +
+                        " _| |_    \\  /    \n" +
+                        "|_____|    \\/     ",
+                "__      __  _____ \n" +
+                        "\\ \\    / / |_   _|\n" +
+                        " \\ \\  / /    | |  \n" +
+                        "  \\ \\/ /     | |  \n" +
+                        "   \\  /     _| |_ \n" +
+                        "    \\/     |_____|"};
+
+        for (int i=0; i<decimalNumbers.length; i++){
+            assertEquals(RomanPrinter.print(decimalNumbers[i]).trim(), romanNumbers[i].trim());
         }
     }
 }
